@@ -1,3 +1,217 @@
+import React, { useState } from 'react';
+import { 
+  DollarSign, 
+  Star, 
+  Trophy,
+  Package,
+  Truck,
+  Box,
+  CheckCircle,
+  ChevronDown,
+  ChevronUp,
+  Warehouse,
+  Globe,
+  BarChart,
+  Users,
+  ShieldCheck,
+  Settings
+} from 'lucide-react';
+
+const OnboardingGuide = () => {
+  const [currentStep, setCurrentStep] = useState(0);
+  const [expandedInfo, setExpandedInfo] = useState(null);
+  const [showTooltip, setShowTooltip] = useState(null);
+
+  const steps = [
+    {
+      title: "Welcome to Quetico 3PL",
+      content: "Your partner in end-to-end supply chain solutions",
+      icon: <Package className="text-sky-400" size={24} />,
+      details: [
+        {
+          title: "What is 3PL?",
+          content: "Third-Party Logistics (3PL) providers like Quetico manage outsourced logistics operations, including warehousing, fulfillment, and distribution. We help businesses scale efficiently without massive infrastructure investments.",
+          subPoints: [
+            "Warehouse Management",
+            "Inventory Control",
+            "Order Fulfillment",
+            "Distribution Network",
+            "Technology Integration"
+          ]
+        },
+        {
+          title: "Why Choose Quetico?",
+          content: "With years of industry experience and cutting-edge technology, Quetico provides comprehensive logistics solutions tailored to your business needs.",
+          subPoints: [
+            "Industry Expertise",
+            "Advanced Technology",
+            "Strategic Locations",
+            "Scalable Solutions",
+            "Dedicated Support"
+          ]
+        }
+      ]
+    },
+    {
+      title: "Retail Fulfillment Excellence",
+      content: "Discover our comprehensive retail compliance and distribution capabilities",
+      icon: <Truck className="text-sky-400" size={24} />,
+      details: [
+        {
+          title: "EDI Integration",
+          content: "Seamless electronic data interchange with major retailers ensures accurate and timely communication.",
+          subPoints: [
+            "Automated Order Processing",
+            "Real-time Updates",
+            "Error Prevention",
+            "Retailer Compliance",
+            "Documentation Management"
+          ]
+        },
+        {
+          title: "Routing Guide Compliance",
+          content: "Meet specific retailer requirements for packaging, labeling, and delivery.",
+          subPoints: [
+            "Custom Labeling",
+            "Packaging Standards",
+            "Delivery Scheduling",
+            "Documentation",
+            "Quality Control"
+          ]
+        },
+        {
+          title: "Cross-Docking Operations",
+          content: "Efficient handling of time-sensitive merchandise with minimal storage time.",
+          subPoints: [
+            "Quick Turnaround",
+            "Reduced Handling",
+            "Inventory Optimization",
+            "Cost Reduction",
+            "Speed to Market"
+          ]
+        }
+      ]
+    },
+    {
+      title: "eCommerce Solutions",
+      content: "Scale your online business with our advanced fulfillment services",
+      icon: <Globe className="text-sky-400" size={24} />,
+      details: [
+        {
+          title: "Same-Day Shipping",
+          content: "Meet customer expectations with rapid order processing and shipping.",
+          subPoints: [
+            "Quick Processing",
+            "Multiple Carriers",
+            "Real-time Tracking",
+            "Delivery Options",
+            "SLA Compliance"
+          ]
+        },
+        {
+          title: "Returns Management",
+          content: "Streamlined returns processing with quality inspection and inventory updates.",
+          subPoints: [
+            "Easy Returns Portal",
+            "Quality Inspection",
+            "Quick Processing",
+            "Inventory Updates",
+            "Customer Communication"
+          ]
+        }
+      ]
+    },
+    {
+      title: "Warehouse Operations",
+      content: "State-of-the-art facilities and efficient processes",
+      icon: <Warehouse className="text-sky-400" size={24} />,
+      details: [
+        {
+          title: "Inventory Management",
+          content: "Advanced WMS for real-time inventory tracking and optimization.",
+          subPoints: [
+            "Cycle Counting",
+            "Location Management",
+            "Stock Rotation",
+            "Batch Tracking",
+            "Inventory Alerts"
+          ]
+        },
+        {
+          title: "Quality Control",
+          content: "Rigorous quality assurance processes at every step.",
+          subPoints: [
+            "Receiving Inspection",
+            "Storage Standards",
+            "Pick Accuracy",
+            "Packaging Quality",
+            "Shipping Verification"
+          ]
+        }
+      ]
+    },
+    {
+      title: "Technology Integration",
+      content: "Seamless connectivity with your systems",
+      icon: <Settings className="text-sky-400" size={24} />,
+      details: [
+        {
+          title: "System Integration",
+          content: "Connect your platforms with our advanced technology stack.",
+          subPoints: [
+            "API Integration",
+            "EDI Setup",
+            "Real-time Sync",
+            "Data Security",
+            "Custom Solutions"
+          ]
+        },
+        {
+          title: "Reporting & Analytics",
+          content: "Comprehensive insights into your supply chain operations.",
+          subPoints: [
+            "Performance Metrics",
+            "Custom Reports",
+            "Real-time Dashboard",
+            "Trend Analysis",
+            "Optimization Tools"
+          ]
+        }
+      ]
+    },
+    {
+      title: "Getting Started",
+      content: "Launch your partnership with Quetico",
+      icon: <Star className="text-sky-400" size={24} />,
+      details: [
+        {
+          title: "Onboarding Process",
+          content: "Structured implementation process for smooth transition.",
+          subPoints: [
+            "Account Setup",
+            "System Integration",
+            "Training",
+            "Testing",
+            "Go-Live Support"
+          ]
+        },
+        {
+          title: "Ongoing Support",
+          content: "Dedicated team for continuous assistance and optimization.",
+          subPoints: [
+            "Account Management",
+            "Technical Support",
+            "Performance Reviews",
+            "Process Optimization",
+            "Growth Planning"
+          ]
+        }
+      ]
+    }
+  ];
+
+  return (
+    <div style={{ minHeight: '100vh', backgroundColor: '#0f172a', padding: '1.5rem' }}>
 <div style={{ maxWidth: '64rem', margin: '0 auto' }}>
         {/* Header */}
         <div style={{ 
